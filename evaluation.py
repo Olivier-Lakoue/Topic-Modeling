@@ -1,5 +1,5 @@
 from gensim.models.coherencemodel import CoherenceModel
-from visualization import save_topic_visualization
+from visualization import save_topic_visualization, save_topic_wordclouds
 from shared.utils import load_from_pickle
 from shared.utils import dump_to_pickle
 from shared.utils import dump_to_json
@@ -22,7 +22,7 @@ class Evaluation(object):
     """
     def __init__(self, lang_code, method, version="1.1", norm_type="LEMMA", k=20, num_words=10, passes=20, workers=8, alpha=0.01, 
                  eta=0.01, no_below=20, no_above=0.6, mallet_path='mallet-2.0.8/bin/mallet', onepass=True, power_iters=1000, 
-                 iterations=500, random_state=42, kappa=0.1, normalize=True, chunksize=2000):
+                 iterations=500, random_state=42, kappa=0.1, normalize=True, chunksize=2000, num_wordcloud_words=150):
 
         self.k = k                   
         self.lang_code = lang_code
@@ -44,6 +44,7 @@ class Evaluation(object):
         self.normalize = normalize
         self.kappa = kappa
         self.chunksize = chunksize
+        self.num_wordcloud_words = num_wordcloud_words
        
     def create_model(self, token_lists, output_path):
         """ Generate model & evaluation file to a given output path 
@@ -65,6 +66,7 @@ class Evaluation(object):
             make_dirs(dict_path)
             make_dirs(corpus_path)
             make_dirs(eval_path)
+            make_dirs(eval_path + "/wordcloud")
 
             # create topic model & fit token_lists
             tm = TM(
@@ -169,8 +171,9 @@ class Evaluation(object):
             dump_to_json(metrics, eval_path + "/evaluation.json", sort_keys=False)
             self.save_topic_terms(tm.model, eval_path + '/topic_terms.txt')
 
-            # save topic visualization
+            # save topic visualization, topic wordclouds
             save_topic_visualization(self.method, tm.model, tm.corpus, tm.dictionary, eval_path + "/topics.html")
+            save_topic_wordclouds(tm.model, self.k, self.num_wordcloud_words, eval_path + "/wordcloud")
 
         except Exception:
             logging.error('error occured', exc_info=True)

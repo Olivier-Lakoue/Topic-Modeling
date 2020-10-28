@@ -1,0 +1,14 @@
+{
+    "k": 50,
+    "num_docs": 141524,
+    "num_words": 15,
+    "lang_code": "en",
+    "method": "HDP",
+    "norm_type": "LEMMA",
+    "version": "1.1",
+    "eta": 0.1,
+    "alpha": 0.1,
+    "random_state": 42,
+    "c_v": "0.364",
+    "u_mass": "-1.893"
+}

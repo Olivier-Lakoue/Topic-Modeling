@@ -1,0 +1,13 @@
+{
+    "k": 50,
+    "workers": 8,
+    "num_docs": 141524,
+    "num_words": 15,
+    "iterations": 500,
+    "lang_code": "en",
+    "method": "LDA_MALLET",
+    "norm_type": "LEMMA",
+    "version": "1.1",
+    "c_v": "0.517",
+    "u_mass": "-2.038"
+}

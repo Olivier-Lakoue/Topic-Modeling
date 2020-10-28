@@ -1,0 +1,14 @@
+{
+    "k": 50,
+    "num_docs": 141524,
+    "num_words": 15,
+    "iterations": 500,
+    "random_state": 42,
+    "normalize": true,
+    "lang_code": "en",
+    "method": "NMF",
+    "norm_type": "LEMMA",
+    "version": "1.1",
+    "c_v": "0.513",
+    "u_mass": "-2.563"
+}

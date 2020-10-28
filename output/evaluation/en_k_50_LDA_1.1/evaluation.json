@@ -1,0 +1,17 @@
+{
+    "k": 50,
+    "passes": 20,
+    "workers": 8,
+    "eta": 0.1,
+    "alpha": 0.1,
+    "random_state": 42,
+    "lang_code": "en",
+    "num_docs": 141524,
+    "num_words": 15,
+    "method": "LDA",
+    "version": "1.1",
+    "norm_type": "LEMMA",
+    "c_v": "0.546",
+    "u_mass": "-2.790",
+    "perplexity": "-6.848"
+}

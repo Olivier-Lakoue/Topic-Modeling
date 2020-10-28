@@ -173,7 +173,7 @@ class Evaluation(object):
 
             # save topic visualization, topic wordclouds
             save_topic_visualization(self.method, tm.model, tm.corpus, tm.dictionary, eval_path + "/topics.html")
-            save_topic_wordclouds(tm.model, self.k, self.num_wordcloud_words, eval_path + "/wordcloud")
+            save_topic_wordclouds(tm.model, self.num_wordcloud_words, eval_path + "/wordcloud")
 
         except Exception:
             logging.error('error occured', exc_info=True)
